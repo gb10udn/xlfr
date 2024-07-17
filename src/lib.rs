@@ -16,11 +16,10 @@ fn read_excel(file_path: &str) -> PyResult<Vec<Vec<String>>> {
             }
             result.push(row_data);
         }
+        Ok(result)
     } else {
-        return Err(pyo3::exceptions::PyIOError::new_err("Sheet not found"));
+        Err(pyo3::exceptions::PyIOError::new_err("Sheet not found"))
     }
-
-    Ok(result)
 }
 
 #[pymodule]
