@@ -1,6 +1,8 @@
 use calamine::{Reader, open_workbook, Xlsx};
 use pyo3::prelude::*;
 
+// TODO: 240717 Rust 上で動作確認できるようにせよ。(main.rs を入れる？)
+
 #[pyfunction]
 fn read_excel(file_path: &str) -> PyResult<Vec<Vec<String>>> {
     let mut workbook: Xlsx<_> = open_workbook(file_path).map_err(|e| {
@@ -21,6 +23,8 @@ fn read_excel(file_path: &str) -> PyResult<Vec<Vec<String>>> {
         Err(pyo3::exceptions::PyIOError::new_err("Sheet not found"))
     }
 }
+
+// TODO: 240717 シート名一覧を取得できるようにせよ。
 
 #[pymodule]
 fn xlfr(m: &Bound<'_, PyModule>) -> PyResult<()> {
