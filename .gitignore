@@ -1,1 +1,7 @@
 /target
+/.venv
+/build
+/dist
+*.xlsm
+*.spec
+*.exe

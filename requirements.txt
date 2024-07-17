@@ -1,0 +1,5 @@
+# [common]
+maturin
+
+# [dev]
+pyinstaller
